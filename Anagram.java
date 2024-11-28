@@ -14,7 +14,7 @@ public class Anagram {
 		
 		//System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		
-		/*/ Performs a stress test of randomAnagram 
+		// Performs a stress test of randomAnagram 
 		String str = "Hello";
 		Boolean pass = true;
 		//// 10 can be changed to much larger values, like 1000
@@ -25,7 +25,7 @@ public class Anagram {
 			if (!pass) break;
 		}
 		System.out.println(pass ? "test passed" : "test Failed");
-		*/ 
+		
 	}  
 
 	// Returns true if the two given strings are anagrams, false otherwise.
@@ -80,12 +80,8 @@ public class Anagram {
 		while(str.length() > 0)
 		{
 			random = (int)(Math.random() * str.length());
-			if(str.charAt(random) != 32) {
 			anagram += (char)str.charAt(random);
-			}
-			str = str.replace(""+str.charAt(random), "");
-			System.out.println("Anagram " + anagram);
-			System.out.println(str);
+			str = str.substring(0,random) + str.substring(random+1, str.length());
 		}
 		return anagram;
 	}
